@@ -1,0 +1,25 @@
+<p>
+  crudproduct works!
+</p>
+<p>
+  product name : <input [(ngModel)] ="product.name">
+</p>
+<p>
+    product cost : <input [(ngModel)] ="product.cost">
+</p>
+<button *ngIf="btn_stt" (click)="save()">Save</button>
+<button *ngIf="!btn_stt" (click)="update()">update</button>
+
+<hr>
+<table>
+  <th>Name</th><th>Cost</th><th>Action</th>
+  <tr *ngFor ="let x of products;let i= index">
+    <td>{{i}}</td>
+    <td>{{x.name}}</td>
+    <td>{{x.cost}}</td>
+    <td>
+      <button (click)="deleteProduct(i)">Delete</button>
+      <button (click)="editProduct(x)">Edit</button>
+    </td>
+  </tr>
+</table>

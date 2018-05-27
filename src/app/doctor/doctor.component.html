@@ -1,0 +1,32 @@
+<p>
+  doctor works!
+</p>
+<p>
+    Doctor name :<input [(ngModel)]="information.name"><br>
+</p>
+  Doctor pic  :<input height="100" width="100" [(ngModel)]="information.pic"><br> 
+<p>
+    Doctor mobile :<input [(ngModel)]="information.mobile"><br>
+</p>  
+<p>
+    Doctor gender : <input type="radio" [(ngModel)]="information.gender" value="male"> Male
+    <input type="radio" [(ngModel)]="information.gender" value="female"> Female 
+
+</p>
+  
+<button   *ngIf="btn_stt" (click)="save()">Save</button>&nbsp;
+<button *ngIf="!btn_stt"  (click)="update()">Update</button>
+
+<table class="table">
+  <th>NAME</th><th>PIC</th> <th>MOBILE</th><th>GENDER</th><th>Action</th>
+  <tr *ngFor="let x of doctor">
+    <td>{{x.name}}</td>
+    <td><img src="{{x.pic}}" height="100" width="100"></td> 
+    <td>{{x.mobile}}</td>
+    <td>{{x.gender}}</td>
+    <td>
+        <button  type="button" class="btn btn-primary btn-sm"(click)="deleteinformation(i)">Delete</button>&nbsp;
+        <button  type="button" class="btn btn-success btn-sm" (click)="editinformation(x)">Edit</button>
+      </td>
+  </tr>
+</table>
